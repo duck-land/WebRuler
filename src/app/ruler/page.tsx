@@ -194,12 +194,13 @@ export default function RulerPage() {
     return (
         <main style={{
             width: '100vw',
-            height: '100vh',
+            height: '100dvh',
             background: '#f0f0f0',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            position: 'relative'
+            position: 'relative',
+            touchAction: 'none'
         }}>
 
             <CalibrationModal

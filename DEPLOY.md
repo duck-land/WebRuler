@@ -2,35 +2,56 @@
 
 이 프로젝트는 **Next.js 정적 내보내기 (Static Export)** 방식으로 설정되어 있어, Cloudflare Pages에 무료로 쉽게 배포할 수 있습니다.
 
+## 🚨 중요: "Pages" vs "Workers" 확인
+
+Cloudflare 대시보드에서 프로젝트를 생성할 때, 반드시 **[Pages]** 탭을 선택해야 합니다.
+**만약 설정 화면에 "Deploy command", "Non-production branch deploy command" 같은 항목이 보인다면, 잘못된 프로젝트(Workers)를 생성하신 것입니다.**
+
+이 경우, 해당 프로젝트를 삭제하고 아래 **방법 1**을 따라 다시 **Pages** 프로젝트로 생성해 주세요.
+
+---
+
 ## 방법 1: GitHub 연동 (권장)
 
 가장 편리하고 자동화된 방법입니다. GitHub에 코드를 푸시하면 자동으로 배포됩니다.
 
-1.  이 프로젝트를 본인의 **GitHub 저장소**에 푸시합니다.
-2.  [Cloudflare Dashboard](https://dash.cloudflare.com/)에 로그인하고, **Workers & Pages** > **Create Application** > **Pages** > **Connect to Git**을 선택합니다.
-3.  방금 푸시한 저장소를 선택합니다.
+1.  [Cloudflare Dashboard](https://dash.cloudflare.com/) > **Workers & Pages** > **Create Application** 클릭.
+2.  화면 중간의 **[Pages] 탭**을 클릭합니다. (기본값은 Workers입니다)
+3.  **Connect to Git**을 누르고 저장소를 선택합니다.
 4.  **Build settings** 설정:
-    *   **Framework preset**: `Next.js (Static Export)` 선택 (없을 경우 `None` 선택)
+    *   **Framework preset**: `Next.js (Static Export)` 선택
     *   **Build command**: `npm run build`
-    *   **Build output directory**: `out`
+    *   **Build output directory**: `out` (Preset 선택 시 자동 입력됨)
 5.  **Save and Deploy**를 클릭합니다.
-
-## 방법 2: 직접 업로드 (Direct Upload)
-
-GitHub 없이 로컬에서 빌드한 파일을 직접 올리는 방법입니다.
-
-1.  프로젝트 폴더에서 터미널을 열고 다음 명령어를 실행하여 빌드합니다:
-    ```bash
-    npm run build
-    ```
-    *   성공하면 프로젝트 폴더에 `out`이라는 폴더가 생성됩니다.
-2.  [Cloudflare Dashboard](https://dash.cloudflare.com/) > **Workers & Pages** > **Create Application** > **Pages** > **Upload Assets** 탭을 선택합니다.
-3.  프로젝트 이름을 입력하고 **Create Project**를 클릭합니다.
-4.  방금 생성된 `out` 폴더를 브라우저 창으로 드래그 앤 드롭합니다.
-5.  **Deploy Site**를 클릭하면 즉시 배포됩니다.
 
 ---
 
-### 참고 사항
-*   **Next.js 설정**: 이미 `next.config.ts`에 `output: 'export'` 설정을 추가해 두었습니다. 이 설정 덕분에 빌드 시 `out` 폴더가 생성됩니다.
-*   **이미지 최적화**: `output: 'export'` 모드에서는 Next.js의 기본 이미지 최적화 서버를 사용할 수 없으므로, `unoptimized: true` 설정도 추가해 두었습니다.
+## 방법 2: Wrangler CLI (터미널 배포)
+
+웹 대시보드가 복잡하거나 오류가 날 경우, 터미널에서 명령어로 바로 배포할 수 있습니다.
+
+1.  프로젝트 폴더에서 터미널을 열고 빌드합니다:
+    ```bash
+    npm run build
+    ```
+2.  다음 명령어로 Cloudflare에 로그인합니다 (최초 1회):
+    ```bash
+    npx wrangler login
+    ```
+    (브라우저가 뜨면 허용(Allow)을 눌러주세요)
+3.  `out` 폴더를 Cloudflare Pages로 배포합니다:
+    ```bash
+    npx wrangler pages deploy out --project-name web-ruler
+    ```
+4.  "Create a new project?"라고 물으면 `y`를 누르거나, 기존 프로젝트를 선택합니다.
+5.  배포가 완료되면 URL이 표시됩니다.
+
+---
+
+## 방법 3: 직접 업로드 (Direct Upload)
+
+GitHub 없이 로컬 파일을 직접 올리는 방법입니다.
+
+1.  `npm run build` 명령어로 빌드하여 `out` 폴더를 생성합니다.
+2.  Cloudflare Dashboard > **Workers & Pages** > **Create Application** > **Pages** 탭 > **Upload Assets** 선택.
+3.  프로젝트 이름 입력 후 `out` 폴더를 드래그 앤 드롭합니다.
