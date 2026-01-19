@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Link from 'next/link';
-import { FaCreditCard, FaArrowsAlt, FaExpandArrowsAlt, FaMobileAlt } from 'react-icons/fa';
+import { FaCreditCard, FaDesktop, FaArrowsAlt, FaExpandArrowsAlt, FaMobileAlt, FaCog, FaSlidersH } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
 export default function HowItWorks() {
@@ -41,10 +41,13 @@ export default function HowItWorks() {
                             borderRadius: '50%',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             marginBottom: '1.5rem',
-                            fontSize: '2rem',
-                            color: '#6366f1'
+                            fontSize: '1.8rem',
+                            color: '#6366f1',
+                            gap: '0.5rem'
                         }}>
                             <FaCreditCard />
+                            <span style={{ fontSize: '1.2rem', opacity: 0.5 }}>/</span>
+                            <FaDesktop />
                         </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{t.howItWorks.step1.title}</h3>
                         <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: t.howItWorks.step1.desc }} />
@@ -64,9 +67,7 @@ export default function HowItWorks() {
                             <FaExpandArrowsAlt />
                         </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{t.howItWorks.step2.title}</h3>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
-                            {t.howItWorks.step2.desc}
-                        </p>
+                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: t.howItWorks.step2.desc }} />
                     </div>
 
                     {/* Step 3 */}
@@ -80,12 +81,10 @@ export default function HowItWorks() {
                             fontSize: '2rem',
                             color: '#ec4899'
                         }}>
-                            <FaArrowsAlt />
+                            <FaSlidersH />
                         </div>
                         <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{t.howItWorks.step3.title}</h3>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
-                            {t.howItWorks.step3.desc}
-                        </p>
+                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: t.howItWorks.step3.desc }} />
                     </div>
 
                 </div>

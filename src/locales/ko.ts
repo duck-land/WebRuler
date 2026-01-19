@@ -29,32 +29,40 @@ export const ko = {
         title: "정밀 측정 마스터하기",
         subtitle: "간단한 3단계만 거치면 가장 정확한 측정이 가능합니다.",
         step1: {
-            title: "1. 카드 준비",
-            desc: "지갑에서 신용카드, 신분증, 또는 운전면허증을 꺼내주세요. 이 카드들은 전 세계 공통으로 <strong>85.60 mm</strong> (3.37 인치)의 폭을 가지고 있습니다."
+            title: "1. 보정 방식 선택",
+            desc: "<strong>신용카드</strong>를 실물로 대보거나, 사용 중인 <strong>모니터 크기(인치)</strong>를 입력하여 보정할 수 있습니다. 두 방식 모두 완벽한 정확도를 제공합니다."
         },
         step2: {
-            title: "2. 화면 보정 (Calibration)",
-            desc: "설정(톱니바퀴)을 열거나 '보정' 버튼을 누르세요. 카드를 화면에 대고, 화면의 박스 크기가 실제 카드와 똑같아질 때까지 조절하세요."
+            title: "2. 보정하기 (Calibration)",
+            desc: "<strong>카드 모드:</strong> 화면 박스를 카드 크기에 맞추세요.<br /><strong>모니터 모드:</strong> 화면 크기(예: 24인치)만 입력하면 즉시 완료됩니다."
         },
         step3: {
-            title: "3. 측정하기",
-            desc: "자를 드래그하여 원하는 위치로 옮기세요. 화면 가장자리에 닿으면 자동으로 붙습니다. 회전 버튼을 눌러 세로 길이도 잴 수 있습니다."
+            title: "3. 측정 및 설정",
+            desc: "자를 드래그하여 측정하고, <strong>단위(cm/inch)</strong> 변경, <strong>눈금 방향</strong> 뒤집기, <strong>가로/세로</strong> 모드를 자유롭게 설정하세요."
         },
         ctaTitle: "준비 되셨나요?",
         ctaDesc: "설치 없이, 브라우저에서 즉시 사용하세요.",
         ctaButton: "자 실행하기"
     },
     calibration: {
-        title: "자 보정하기",
-        desc: "실제 신용카드를 화면의 박스 위에 올려놓고, 박스의 너비가 카드와 정확히 일치할 때까지 조절해주세요.",
-        guide: "모서리 중심 맞추기 ↙",
-        currentPPI: "현재 PPI:",
-        save: "설정 저장",
-        cancel: "취소"
+        title: '보정 설정',
+        desc: '표준 신용카드(3.37인치)를 화면에 대고 크기를 맞춰주세요.',
+        descMonitor: '정확한 PPI 계산을 위해 화면의 대각선 크기(인치)를 입력해주세요.',
+        tabs: {
+            card: '신용카드',
+            monitor: '모니터 크기'
+        },
+        guide: '카드를 좌상단에 맞추세요',
+        cancel: '취소',
+        save: '저장',
+        currentPPI: '현재 PPI:'
     },
     ruler: {
-        back: "뒤로가기",
-        calibrate: "보정",
-        reset: "위치 초기화"
+        title: 'Web Ruler',
+        controls: {
+            position: { title: '자 위치', desc: '자가 표시될 위치를 변경합니다' },
+            unit: { title: '측정 단위', desc: 'cm/inch 단위를 변경합니다' },
+            tick: { title: '눈금 방향', desc: '눈금의 표시 방향을 뒤집습니다' }
+        }
     }
 };

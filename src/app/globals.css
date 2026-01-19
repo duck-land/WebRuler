@@ -5,13 +5,15 @@
   --background: #0a0a0c;
   --surface: #121216;
   --surface-highlight: #1c1c22;
-  --primary: #6366f1; /* Indigo-500 equivalent */
+  --primary: #6366f1;
+  /* Indigo-500 equivalent */
   --primary-glow: rgba(99, 102, 241, 0.4);
-  --accent: #ec4899; /* Pink-500 equivalent */
+  --accent: #ec4899;
+  /* Pink-500 equivalent */
   --text-main: #ffffff;
   --text-muted: #94a3b8;
   --border: #2d2d35;
-  
+
   /* Spacing */
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -79,4 +81,21 @@ a {
   backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: 12px;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
 }

@@ -29,32 +29,40 @@ export const es = {
         title: "Dominando la Precisión",
         subtitle: "Obtén las mediciones más precisas siguiendo estos sencillos pasos.",
         step1: {
-            title: "1. Prepara una Tarjeta",
-            desc: "Toma una tarjeta de crédito estándar, identificación o licencia de conducir. Estas tarjetas tienen un ancho estándar universal de <strong>85.60 mm</strong> (3.37 pulgadas)."
+            title: "1. Elige Calibración",
+            desc: "Puedes calibrar usando una <strong>Tarjeta de Crédito</strong> O ingresando el <strong>Tamaño del Monitor</strong> (pulgadas). Ambos métodos aseguran 100% de precisión."
         },
         step2: {
             title: "2. Calibrar",
-            desc: "Abre la configuración (icono de engranaje) o haz clic en \"Calibrar\". Coloca tu tarjeta en la pantalla y ajusta el tamaño del cuadro hasta que coincida perfectamente con la tarjeta."
+            desc: "<strong>Modo Tarjeta:</strong> Coloca la tarjeta en pantalla y ajusta el ancho.<br /><strong>Modo Monitor:</strong> Ingresa el tamaño de tu pantalla (ej. 24 pulgadas) para calibración automática."
         },
         step3: {
-            title: "3. Medir",
-            desc: "Arrastra la regla por la pantalla. Se ajusta a los bordes para mayor comodidad. Usa el botón de rotar para mediciones verticales."
+            title: "3. Medir y Personalizar",
+            desc: "Arrastra la regla, cambia <strong>Unidades</strong> (cm/inch), invierte <strong>Marcas</strong> o cambia la <strong>Posición</strong> (Horizontal/Vertical) desde el menú."
         },
         ctaTitle: "¿Listo para medir?",
         ctaDesc: "No requiere instalación de aplicación. Funciona al instante en tu navegador.",
         ctaButton: "Iniciar Regla"
     },
-    calibration: {
-        title: "Calibrar Regla",
-        desc: "Coloca una tarjeta de crédito estándar en la pantalla y ajusta el ancho del cuadro a continuación hasta que coincida exactamente con la tarjeta.",
-        guide: "Alinear esquina al centro ↙",
-        currentPPI: "PPI Actual:",
-        save: "Guardar Calibración",
-        cancel: "Cancelar"
-    },
     ruler: {
-        back: "Atrás",
-        calibrate: "Calibrar",
-        reset: "Restablecer"
+        title: 'Web Ruler',
+        controls: {
+            position: { title: 'Posición de la Regla', desc: 'Cambiar posición de la regla' },
+            unit: { title: 'Unidad de Medida', desc: 'Cambiar tipo de unidad' },
+            tick: { title: 'Dirección de Marcas', desc: 'Invertir marcas de la regla' }
+        }
+    },
+    calibration: {
+        title: 'Calibración',
+        desc: 'Usa una tarjeta de crédito estándar (3.37 pulgadas) para calibrar.',
+        descMonitor: 'Introduce el tamaño diagonal de tu pantalla en pulgadas para calcular el PPI.',
+        tabs: {
+            card: 'Tarjeta Crédito',
+            monitor: 'Tamaño Monitor'
+        },
+        guide: 'Alinea la tarjeta arriba-izq',
+        cancel: 'Cancelar',
+        save: 'Guardar',
+        currentPPI: 'PPI Actual:'
     }
 };

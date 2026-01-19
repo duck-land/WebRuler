@@ -20,15 +20,18 @@ export default function Header() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: '0.75rem 1.5rem'
+                padding: '0.75rem 1.5rem',
+                gap: '1rem'
             }}>
-                <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1.25rem' }}>
+                <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1.25rem', whiteSpace: 'nowrap' }}>
                     <FaRulerCombined style={{ color: 'var(--primary)' }} />
-                    <span>{t.header.title}</span>
+                    <span className="desktop-only">{t.header.title}</span> {/* Hide Title Text on very small screens if needed, or keep it */}
                 </Link>
 
-                <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-                    <Link href="#features" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{t.header.features}</Link>
+                <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <Link href="#features" className="desktop-only" style={{ color: 'var(--text-muted)', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
+                        {t.header.features}
+                    </Link>
 
                     {/* Language Selector */}
                     <div style={{ position: 'relative' }}>
@@ -45,7 +48,8 @@ export default function Header() {
                                 fontSize: '0.9rem',
                                 cursor: 'pointer',
                                 outline: 'none',
-                                textAlign: 'center'
+                                textAlign: 'center',
+                                maxWidth: '120px'
                             }}
                         >
                             <option value="en">English</option>
@@ -71,7 +75,7 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <Link href="/ruler" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+                    <Link href="/ruler" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
                         {t.header.openRuler}
                     </Link>
                 </nav>

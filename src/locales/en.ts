@@ -29,32 +29,43 @@ export const en = {
         title: "Mastering Precision",
         subtitle: "Get the most accurate measurements by following these simple steps.",
         step1: {
-            title: "1. Prepare a Card",
-            desc: "Grab a standard credit card, ID card, or driver's license. These cards have a universal standard width of <strong>85.60 mm</strong> (3.37 inches)."
+            title: "1. Choose Calibration",
+            desc: "You can calibrate using a standard <strong>Credit Card</strong> OR by entering your <strong>Monitor Size</strong> (diagonal inches). Both methods ensure 100% precision."
         },
         step2: {
             title: "2. Calibrate",
-            desc: "Open the settings (gear icon) or click \"Calibrate\". Place your card on the screen and adjust the box size until it perfectly matches the card."
+            desc: "<strong>Card Mode:</strong> Place card on screen and adjust box width.<br /><strong>Monitor Mode:</strong> Simply enter your screen size (e.g., 24 inch) for auto-calibration."
         },
         step3: {
-            title: "3. Measure",
-            desc: "Drag the ruler around the screen. It snaps to edges for convenience. Use the rotate button for vertical measurements."
+            title: "3. Measure & Customize",
+            desc: "Drag the ruler, switch <strong>Units</strong> (cm/inch), flip <strong>Tick Marks</strong>, or change <strong>Position</strong> (Horizontal/Vertical) using the settings menu."
         },
         ctaTitle: "Ready to measure?",
         ctaDesc: "No app installation required. Works instantly in your browser.",
         ctaButton: "Start Ruler"
     },
     calibration: {
-        title: "Calibrate Ruler",
-        desc: "Place a standard credit card on the screen and adjust the box width below until it matches the card exactly.",
-        guide: "Align Corner Center ↙",
-        currentPPI: "Current PPI:",
-        save: "Save Calibration",
-        cancel: "Cancel"
+        title: 'Calibration',
+        desc: 'Use a standard credit card size (3.37 inch) to calibrate.',
+        descMonitor: 'Enter the diagonal size of your screen in inches to automatically calculate PPI.',
+        tabs: {
+            card: 'Credit Card',
+            monitor: 'Monitor Size'
+        },
+        guide: 'Align card with top-left',
+        cancel: 'Cancel',
+        save: 'Save',
+        currentPPI: 'Current PPI:'
     },
     ruler: {
+        title: 'Web Ruler',
         back: "Back",
         calibrate: "Calibrate",
-        reset: "Reset Position"
+        reset: "Reset Position",
+        controls: {
+            position: { title: 'Ruler Position', desc: 'Switch ruler position' },
+            unit: { title: 'Measurement Unit', desc: 'Switch unit type' },
+            tick: { title: 'Tick Direction', desc: 'Flip tick marks' }
+        }
     }
 };

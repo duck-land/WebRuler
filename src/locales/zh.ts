@@ -29,32 +29,40 @@ export const zh = {
         title: "掌握精准度",
         subtitle: "只需遵循以下简单步骤，即可获得最准确的测量结果。",
         step1: {
-            title: "1. 准备一张卡片",
-            desc: "拿出一张标准的信用卡、身份证或驾照。这些卡片的通用标准宽度为 <strong>85.60 毫米</strong> (3.37 英寸)。"
+            title: "1. 选择校准方式",
+            desc: "您可以使用标准<strong>信用卡</strong>进行校准，或者直接输入您的<strong>显示器尺寸（英寸）</strong>。两种方法都能确保100%的精度。"
         },
         step2: {
-            title: "2. 校准",
-            desc: "打开设置（齿轮图标）或点击“校准”。将卡片放在屏幕上，调整方框大小直到与卡片完美匹配。"
+            title: "2. 进行校准",
+            desc: "<strong>卡片模式：</strong> 将卡片放在屏幕上并调整方框宽度。<br /><strong>显示器模式：</strong> 只需输入屏幕尺寸（如24英寸）即可自动校准。"
         },
         step3: {
-            title: "3. 测量",
-            desc: "在屏幕上拖动尺子。它可以自动吸附到边缘以方便使用。使用旋转按钮进行垂直测量。"
+            title: "3. 测量与自定义",
+            desc: "拖动尺子进行测量。在设置菜单中切换<strong>单位(cm/inch)</strong>、翻转<strong>刻度方向</strong>或更改<strong>位置(横向/纵向)</strong>。"
         },
         ctaTitle: "准备好测量了吗？",
         ctaDesc: "无需安装App。在浏览器中即刻使用。",
         ctaButton: "启动尺子"
     },
-    calibration: {
-        title: "校准尺子",
-        desc: "将标准信用卡放在屏幕上，调整下方的方框宽度，直到它与卡片完全匹配。",
-        guide: "对齐角落中心 ↙",
-        currentPPI: "当前 PPI:",
-        save: "保存校准",
-        cancel: "取消"
-    },
     ruler: {
-        back: "返回",
-        calibrate: "校准",
-        reset: "重置位置"
+        title: 'Web Ruler',
+        controls: {
+            position: { title: '尺子位置', desc: '切换尺子显示位置' },
+            unit: { title: '测量单位', desc: '切换 cm/inch' },
+            tick: { title: '刻度方向', desc: '翻转刻度显示方向' }
+        }
+    },
+    calibration: {
+        title: '校准设置',
+        desc: '请将标准信用卡(3.37英寸)贴在屏幕上并调整大小。',
+        descMonitor: '请输入屏幕对角线尺寸（英寸）以自动计算PPI。',
+        tabs: {
+            card: '信用卡',
+            monitor: '显示器尺寸'
+        },
+        guide: '将卡片对齐左上角',
+        cancel: '取消',
+        save: '保存',
+        currentPPI: '当前 PPI:'
     }
 };

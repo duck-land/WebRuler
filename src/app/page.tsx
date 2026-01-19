@@ -37,11 +37,12 @@ export default function Home() {
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <h1 style={{
-            fontSize: '4.5rem',
+            fontSize: '4rem',
             lineHeight: 1.1,
             background: 'linear-gradient(to right, #fff, #94a3b8)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
+            marginTop: '1.5rem',
             marginBottom: '1.5rem',
             letterSpacing: '-2px'
           }} dangerouslySetInnerHTML={{ __html: t.home.heroTitle }} />
