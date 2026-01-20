@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Web Ruler",
 };
 
+import Script from "next/script";
 import { LanguageProvider } from "../context/LanguageContext";
 
 export default function RootLayout({
@@ -27,6 +28,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HXFYRWG1Z9"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-HXFYRWG1Z9');
+          `}
+        </Script>
         <LanguageProvider>
           {children}
         </LanguageProvider>
