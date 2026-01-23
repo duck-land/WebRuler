@@ -59,7 +59,7 @@ export default function RulerPage() {
     }, [orientation]);
 
     useEffect(() => {
-        const savedPPI = localStorage.getItem('web-ruler-ppi');
+        const savedPPI = localStorage.getItem('rulerhero-ppi');
         if (savedPPI) {
             setPpi(parseFloat(savedPPI));
         }
@@ -67,7 +67,7 @@ export default function RulerPage() {
 
     const saveCalibration = (newPPI: number) => {
         setPpi(newPPI);
-        localStorage.setItem('web-ruler-ppi', newPPI.toString());
+        localStorage.setItem('rulerhero-ppi', newPPI.toString());
     };
 
     const toggleOrientation = () => {

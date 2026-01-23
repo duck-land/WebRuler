@@ -1,11 +1,11 @@
 {
-  "name": "web-ruler",
+  "name": "rulerhero",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3042",
     "build": "next build",
-    "start": "next start",
+    "start": "npx serve@latest out",
     "lint": "eslint"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 export const fr = {
     header: {
-        title: "WebRuler",
+        title: "RulerHero",
         features: "Fonctionnalités",
         openRuler: "Ouvrir la Règle"
     },
@@ -23,7 +23,7 @@ export const fr = {
                 desc: "Design entièrement réactif qui fonctionne parfaitement sur les téléphones, les tablettes et les moniteurs de bureau."
             }
         },
-        footer: "WebRuler. Tous droits réservés."
+        footer: "RulerHero. Tous droits réservés."
     },
     howItWorks: {
         title: "Maîtriser la Précision",
@@ -45,7 +45,7 @@ export const fr = {
         ctaButton: "Lancer la Règle"
     },
     ruler: {
-        title: 'Web Ruler',
+        title: 'RulerHero',
         controls: {
             position: { title: 'Position de la Règle', desc: 'Changer la position' },
             unit: { title: 'Unité de Mesure', desc: 'Changer d\'unité' },
@@ -63,6 +63,26 @@ export const fr = {
         guide: 'Aligner la carte en haut à gauche',
         cancel: 'Annuler',
         save: 'Enregistrer',
-        currentPPI: 'PPI Actuel:'
+        currentPPI: 'PPI Actuel:',
+        popularDevices: 'Appareils populaires'
+    },
+    footerLinks: {
+        privacy: 'Politique de Confidentialité',
+        terms: 'Conditions d\'Utilisation'
+    },
+    privacyContent: {
+        title: "Politique de Confidentialité",
+        intro: "RulerHero (ci-après « le Service ») respecte votre vie privée et se conforme aux lois en vigueur.",
+        items: { title: "1. Informations Collectées", desc: "Ce Service peut être utilisé sans inscription et ne collecte pas d'informations d'identification personnelle directe. Cependant, des informations telles que les cookies, l'IP d'accès et le type de navigateur peuvent être générées et collectées automatiquement lors de l'utilisation." },
+        cookies: { title: "2. Cookies et Outils Tiers", desc: "Ce Service utilise les outils suivants :<br />Google Analytics : Utilise des cookies pour l'analyse des statistiques d'utilisation.<br />Google AdSense : Utilise des cookies pour fournir des publicités personnalisées. Les utilisateurs peuvent refuser la collecte de cookies via les paramètres du navigateur." },
+        retention: { title: "3. Conservation et Destruction", desc: "Le Service détruit les informations personnelles sans délai une fois l'objectif atteint." }
+    },
+    termsContent: {
+        title: "Conditions d'Utilisation",
+        purpose: { title: "Article 1 (Objet)", desc: "Le but de ces conditions est de réglementer les conditions et procédures d'utilisation du service d'outil de mesure en ligne fourni par 'RulerHero' (ci-après 'le Service')." },
+        service: { title: "Article 2 (Contenu du Service)", desc: "Le Service fournit un outil pour mesurer la longueur en affichant une règle virtuelle sur l'écran via un navigateur." },
+        liability: { title: "Article 3 (Limitation de Responsabilité)", desc: "1. Les valeurs de mesure fournies par ce Service peuvent différer des valeurs réelles en fonction de la résolution du moniteur de l'utilisateur, des paramètres de taille d'écran, etc.<br />2. Le Service ne garantit pas une mesure précise et n'est pas responsable des dommages causés à l'utilisateur par des erreurs de mesure. Veuillez vous assurer de reconfirmer les chiffres importants avec un instrument de mesure réel." },
+        obligations: { title: "Article 4 (Obligations de l'Utilisateur)", desc: "Les utilisateurs ne doivent pas utiliser le Service à des fins déloyales ni s'engager dans des actes qui nuisent au système." },
+        updates: { title: "Article 5 (Modification des Conditions)", desc: "Le Service peut modifier les conditions si nécessaire et en informera via une notification sur le site." }
     }
 };

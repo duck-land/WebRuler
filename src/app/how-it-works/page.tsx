@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Link from 'next/link';
 import { FaCreditCard, FaDesktop, FaArrowsAlt, FaExpandArrowsAlt, FaMobileAlt, FaCog, FaSlidersH } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
@@ -100,6 +101,7 @@ export default function HowItWorks() {
                 </div>
 
             </section>
-        </main>
+            <Footer />
+        </main >
     );
 }

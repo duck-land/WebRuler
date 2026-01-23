@@ -1,6 +1,7 @@
 'use client';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Link from 'next/link';
 import { FaCompressArrowsAlt, FaMobileAlt, FaDraftingCompass } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
@@ -124,11 +125,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer style={{ padding: '2rem 0', borderTop: '1px solid var(--border)', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-        <div className="container">
-          <p>&copy; {new Date().getFullYear()} {t.home.footer}</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

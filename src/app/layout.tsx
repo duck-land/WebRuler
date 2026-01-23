@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web Ruler",
-  description: "Web Ruler",
+  title: "RulerHero",
+  description: "RulerHero",
 };
 
 import Script from "next/script";
@@ -41,6 +41,12 @@ export default function RootLayout({
             gtag('config', 'G-HXFYRWG1Z9');
           `}
         </Script>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <LanguageProvider>
           {children}
         </LanguageProvider>

@@ -1,6 +1,6 @@
 export const ko = {
     header: {
-        title: "WebRuler",
+        title: "RulerHero",
         features: "기능 소개",
         openRuler: "자 시작하기"
     },
@@ -23,7 +23,7 @@ export const ko = {
                 desc: "스마트폰, 태블릿, 데스크탑 등 모든 화면 크기에 최적화된 반응형 디자인을 제공합니다."
             }
         },
-        footer: "WebRuler. All rights reserved."
+        footer: "RulerHero. All rights reserved."
     },
     howItWorks: {
         title: "정밀 측정 마스터하기",
@@ -46,7 +46,7 @@ export const ko = {
     },
     calibration: {
         title: '보정 설정',
-        desc: '표준 신용카드(3.37인치)를 화면에 대고 크기를 맞춰주세요.',
+        desc: '표준 신용카드(3.37인치)를 화면에 대고 크기를 맞춰주세요. (모바일에서는 카드의 세로 높이를 맞춰도 됩니다)',
         descMonitor: '정확한 PPI 계산을 위해 화면의 대각선 크기(인치)를 입력해주세요.',
         tabs: {
             card: '신용카드',
@@ -55,14 +55,37 @@ export const ko = {
         guide: '카드를 좌상단에 맞추세요',
         cancel: '취소',
         save: '저장',
-        currentPPI: '현재 PPI:'
+        currentPPI: '현재 PPI:',
+        popularDevices: '자주 쓰는 기기'
     },
     ruler: {
-        title: 'Web Ruler',
+        title: 'RulerHero',
         controls: {
             position: { title: '자 위치', desc: '자가 표시될 위치를 변경합니다' },
             unit: { title: '측정 단위', desc: 'cm/inch 단위를 변경합니다' },
             tick: { title: '눈금 방향', desc: '눈금의 표시 방향을 뒤집습니다' }
-        }
+        },
+        back: "뒤로",
+        calibrate: "보정",
+        reset: "초기화"
+    },
+    footerLinks: {
+        privacy: '개인정보처리방침',
+        terms: '이용약관'
+    },
+    privacyContent: {
+        title: "개인정보 처리방침",
+        intro: "RulerHero(이하 '서비스')는 사용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.",
+        items: { title: "1. 수집하는 개인정보 항목", desc: "본 서비스는 별도의 회원가입 없이 이용 가능하며, 직접적인 개인식별정보를 수집하지 않습니다. 다만, 서비스 이용 과정에서 쿠키, 접속 IP, 브라우저 종류 등의 정보가 자동 생성되어 수집될 수 있습니다." },
+        cookies: { title: "2. 쿠키(Cookie) 및 제3자 분석 도구 사용", desc: "본 서비스는 다음과 같은 도구를 사용합니다.<br />Google Analytics: 서비스 이용 통계 분석을 위해 쿠키를 사용합니다.<br />Google AdSense: 사용자에게 맞춤형 광고를 제공하기 위해 쿠키를 사용합니다. 사용자는 브라우저 설정에서 쿠키 수집을 거부할 수 있습니다." },
+        retention: { title: "3. 개인정보의 보유 및 파기", desc: "본 서비스는 목적이 달성된 개인정보를 지체 없이 파기합니다." }
+    },
+    termsContent: {
+        title: "이용약관",
+        purpose: { title: "제1조 (목적)", desc: "본 약관은 'RulerHero'(이하 '서비스')이 제공하는 온라인 측정 도구 서비스의 이용 조건 및 절차를 규정함을 목적으로 합니다." },
+        service: { title: "제2조 (서비스의 내용)", desc: "서비스는 브라우저를 통해 화면에 가상의 자를 표시하여 길이를 측정할 수 있는 도구를 제공합니다." },
+        liability: { title: "제3조 (책임의 한계)", desc: "1. 본 서비스에서 제공하는 측정값은 사용자의 모니터 해상도, 화면 크기 설정 등에 따라 실제 수치와 차이가 발생할 수 있습니다.<br />2. 서비스는 정밀한 측정을 보장하지 않으며, 측정 오류로 인해 발생하는 사용자의 손해에 대해 책임을 지지 않습니다. 중요 수치는 반드시 실제 계측기를 통해 재확인하시기 바랍니다." },
+        obligations: { title: "제4조 (이용자의 의무)", desc: "사용자는 서비스를 부당한 목적으로 이용하거나 시스템에 위해를 가하는 행위를 해서는 안 됩니다." },
+        updates: { title: "제5조 (약관의 변경)", desc: "서비스는 필요 시 약관을 변경할 수 있으며, 사이트 내 공지를 통해 알립니다." }
     }
 };

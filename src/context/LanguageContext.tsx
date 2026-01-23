@@ -39,6 +39,25 @@ type Translations = typeof en & {
         controls: RulerControls;
     };
     calibration: CalibrationStrings;
+    footerLinks: {
+        privacy: string;
+        terms: string;
+    };
+    privacyContent: {
+        title: string;
+        intro: string;
+        items: { title: string; desc: string; };
+        cookies: { title: string; desc: string; };
+        retention: { title: string; desc: string; };
+    };
+    termsContent: {
+        title: string;
+        purpose: { title: string; desc: string; };
+        service: { title: string; desc: string; };
+        liability: { title: string; desc: string; };
+        obligations: { title: string; desc: string; };
+        updates: { title: string; desc: string; };
+    };
 };
 
 type Language = 'en' | 'ko' | 'zh' | 'ja' | 'es' | 'hi' | 'fr' | 'ar' | 'ru';
@@ -51,35 +70,41 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const translations: Record<Language, Translations> = {
+    en: en as Translations,
+    ko: ko as Translations,
+    zh: zh as Translations,
+    ja: ja as Translations,
+    es: es as Translations,
+    hi: hi as Translations,
+    fr: fr as Translations,
+    ar: ar as Translations,
+    ru: ru as Translations,
+};
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
     const [language, setLanguage] = useState<Language>('en'); // Default to English initially
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         // Load persisted language or detect browser language
-        const savedLang = localStorage.getItem('webruler_lang') as Language;
         const validLangs: Language[] = ['en', 'ko', 'zh', 'ja', 'es', 'hi', 'fr', 'ar', 'ru'];
+        const savedLang = localStorage.getItem('rulerhero_lang') as Language;
 
         if (savedLang && validLangs.includes(savedLang)) {
             setLanguage(savedLang);
         } else {
-            // Simple browser detection
-            const browserLang = navigator.language;
-            if (browserLang.includes('ko')) setLanguage('ko');
-            else if (browserLang.includes('zh')) setLanguage('zh');
-            else if (browserLang.includes('ja')) setLanguage('ja');
-            else if (browserLang.includes('es')) setLanguage('es');
-            else if (browserLang.includes('hi')) setLanguage('hi');
-            else if (browserLang.includes('fr')) setLanguage('fr');
-            else if (browserLang.includes('ar')) setLanguage('ar');
-            else if (browserLang.includes('ru')) setLanguage('ru');
+            const browserLang = navigator.language.slice(0, 2);
+            if (validLangs.includes(browserLang as Language)) {
+                setLanguage(browserLang as Language);
+            }
         }
         setIsLoaded(true);
     }, []);
 
     const handleSetLanguage = (lang: Language) => {
         setLanguage(lang);
-        localStorage.setItem('webruler_lang', lang);
+        localStorage.setItem('rulerhero_lang', lang);
     };
 
     let t: Translations = en as Translations; // Cast to Translations to satisfy type checking

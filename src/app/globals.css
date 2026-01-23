@@ -81,6 +81,15 @@ a {
   backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: 12px;
+  border-radius: 12px;
+}
+
+.footer-link {
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--primary);
 }
 
 /* Responsive Utilities */
@@ -94,8 +103,25 @@ a {
   }
 }
 
-@media (min-width: 769px) {
-  .mobile-only {
-    display: none !important;
-  }
+.mobile-only {
+  display: none !important;
+}
+
+/* Custom Scrollbar */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }

@@ -1,8 +1,40 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FaCreditCard, FaCheck, FaTimes, FaMinus, FaPlus, FaDesktop } from 'react-icons/fa';
+import { FaCreditCard, FaCheck, FaTimes, FaMinus, FaPlus, FaDesktop, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
+
+// Device Data (2026 Updated)
+const DEVICE_DATA = {
+    "Apple": [
+        { name: "iPhone 17 Pro Max", inch: 6.9 },
+        { name: "iPhone 17 Pro", inch: 6.3 },
+        { name: "iPhone 17", inch: 6.1 },
+        { name: "iPhone 16 Pro Max", inch: 6.9 },
+        { name: "iPhone 16 Pro", inch: 6.3 },
+        { name: "iPhone 16 Plus", inch: 6.7 },
+        { name: "iPhone 16", inch: 6.1 },
+        { name: "iPhone 15", inch: 6.1 },
+        { name: "iPhone 14", inch: 6.1 },
+    ],
+    "Samsung": [
+        { name: "Galaxy S25 Ultra", inch: 6.9 },
+        { name: "Galaxy S25+", inch: 6.7 },
+        { name: "Galaxy S25", inch: 6.2 },
+        { name: "Galaxy S24 Ultra", inch: 6.8 },
+        { name: "Galaxy A55 5G", inch: 6.6 },
+        { name: "Galaxy A35 5G", inch: 6.6 },
+        { name: "Galaxy A15", inch: 6.5 },
+        { name: "Galaxy A16", inch: 6.7 },
+    ],
+    "Others": [
+        { name: "Pixel 9 Pro", inch: 6.7 },
+        { name: "Pixel 9", inch: 6.3 },
+        { name: "Redmi Note 14 Pro", inch: 6.67 },
+        { name: "Redmi 13", inch: 6.79 },
+        { name: "Redmi 14", inch: 6.88 },
+    ]
+};
 
 interface CalibrationModalProps {
     isOpen: boolean;
@@ -23,6 +55,7 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
     // New Tab State - Default to Monitor, Monitor on Left
     const [activeTab, setActiveTab] = useState<'monitor' | 'card'>('monitor');
     const [monitorSize, setMonitorSize] = useState('');
+    const [isDevicesOpen, setIsDevicesOpen] = useState(true);
 
     useEffect(() => {
         if (isOpen) {
@@ -80,7 +113,7 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
             alignItems: 'flex-start', // Helper anchor at top
             justifyContent: 'center',
             backdropFilter: 'blur(5px)',
-            paddingTop: '7vh', // Fixed top offset
+            paddingTop: '5vh', // Fixed top offset
             overflowY: 'auto'
         }}>
             <div className="glass-panel" style={{
@@ -92,13 +125,13 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                 boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.5rem'
+                gap: '.5rem'
             }}>
                 <div style={{ textAlign: 'center' }}>
-                    <h2 style={{ color: 'white', marginBottom: '1rem' }}>{t.calibration.title}</h2>
+                    <h2 style={{ color: 'white', marginBottom: '.5rem' }}>{t.calibration.title}</h2>
 
                     {/* TAB NAVIGATION - Moved below Title */}
-                    <div style={{ display: 'flex', background: 'rgba(0,0,0,0.2)', borderRadius: '10px', padding: '4px', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', background: 'rgba(0,0,0,0.2)', borderRadius: '10px', padding: '4px', marginBottom: '.5rem' }}>
                         <button style={tabButtonStyle(activeTab === 'monitor')} onClick={() => setActiveTab('monitor')}>
                             <FaDesktop /> {t.calibration.tabs.monitor}
                         </button>
@@ -126,8 +159,8 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                                 <button
                                     className="btn"
                                     style={{ padding: '0.75rem', background: '#333' }}
-                                    onClick={() => setPixels(p => Math.max(100, p - 1))}
-                                    onContextMenu={(e) => { e.preventDefault(); setPixels(p => Math.max(100, p - 5)); }}
+                                    onClick={() => setPixels(p => Math.max(100, p - 0.337))}
+                                    onContextMenu={(e) => { e.preventDefault(); setPixels(p => Math.max(100, p - 6.74)); }}
                                 >
                                     <FaMinus size={12} />
                                 </button>
@@ -135,7 +168,7 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                                 <input
                                     type="range"
                                     min="100"
-                                    max="506" // 150 PPI * 3.37 inch = 505.5
+                                    max="674" // 200 PPI * 3.37 inch = 674
                                     value={pixels}
                                     onChange={(e) => setPixels(Number(e.target.value))}
                                     style={{ width: '100%', maxWidth: '200px' }}
@@ -144,8 +177,8 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                                 <button
                                     className="btn"
                                     style={{ padding: '0.75rem', background: '#333' }}
-                                    onClick={() => setPixels(p => Math.min(506, p + 1))}
-                                    onContextMenu={(e) => { e.preventDefault(); setPixels(p => Math.min(506, p + 5)); }}
+                                    onClick={() => setPixels(p => Math.min(674, p + 0.337))}
+                                    onContextMenu={(e) => { e.preventDefault(); setPixels(p => Math.min(674, p + 6.74)); }}
                                 >
                                     <FaPlus size={12} />
                                 </button>
@@ -199,11 +232,11 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                                     {t.calibration.guide}
                                 </span>
 
-                                {/* Card - VERTICAL orientation */}
+                                {/* Card - HORIZONTAL orientation (Default) */}
                                 <div style={{
-                                    width: `${pixels * 0.628}px`, // Expands to the RIGHT
-                                    height: `${pixels}px`,
-                                    minWidth: '50px',
+                                    width: `${pixels}px`, // Expands horizontally (Long Side)
+                                    height: `${pixels * 0.628}px`, // Short Side
+                                    minWidth: '100px', // Adjusted for horizontal
                                     background: 'linear-gradient(135deg, #6366f1, #a855f7)',
                                     borderRadius: '8px',
                                     display: 'flex',
@@ -215,20 +248,21 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                                     transition: 'width 0.1s ease-out, height 0.1s ease-out',
 
                                     // Ensure it starts at 0,0 of wrapper
-                                    position: 'absolute', // Absolute to flow out of 0-width wrapper?
+                                    position: 'absolute',
                                     top: 0, left: 0
                                 }}>
-                                    <FaCreditCard style={{ transform: 'rotate(90deg)' }} />
+                                    <FaCreditCard />
                                 </div>
 
-                                {/* Spacer to prevent overlap: Matches Card Height */}
-                                <div style={{ width: '1px', height: `${pixels}px`, visibility: 'hidden' }} />
+                                {/* Spacer to prevent overlap: Matches Card Height (Short Side) */}
+                                <div style={{ width: '1px', height: `${pixels * 0.628}px`, visibility: 'hidden' }} />
                             </div>
                         </div>
                     </>
                 ) : (
                     // --- NEW MONITOR SIZE UI ---
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '1rem', alignItems: 'center' }}>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '1rem', alignItems: 'center', width: '100%' }}>
                         <div style={{
                             background: 'rgba(255,255,255,0.05)',
                             padding: '1.5rem',
@@ -256,6 +290,59 @@ export default function CalibrationModal({ isOpen, onClose, onSave, initialPPI }
                                 />
                                 <span style={{ color: 'white', fontWeight: 600 }}>inch</span>
                             </div>
+                        </div>
+
+                        {/* Popular Devices Section */}
+                        <div style={{ width: '100%' }}>
+                            <div
+                                onClick={() => setIsDevicesOpen(!isDevicesOpen)}
+                                style={{
+                                    color: 'var(--text-muted)',
+                                    fontSize: '0.9rem',
+                                    marginBottom: '0.8rem',
+                                    fontWeight: 600,
+                                    borderBottom: '1px solid #333',
+                                    paddingBottom: '0.5rem',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center'
+                                }}>
+                                {t.calibration.popularDevices}
+                                {isDevicesOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                            </div>
+
+                            {isDevicesOpen && (
+                                <div className="thin-scrollbar" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxHeight: '150px', overflowY: 'auto', paddingRight: '5px' }}>
+                                    {Object.entries(DEVICE_DATA).map(([brand, devices]) => (
+                                        <div key={brand}>
+                                            <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.4rem' }}>{brand}</div>
+                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                                                {devices.map(device => (
+                                                    <button
+                                                        key={device.name}
+                                                        onClick={() => setMonitorSize(device.inch.toString())}
+                                                        style={{
+                                                            background: 'rgba(255,255,255,0.1)',
+                                                            border: 'None',
+                                                            borderRadius: '4px',
+                                                            padding: '4px 8px',
+                                                            color: '#ddd',
+                                                            fontSize: '0.75rem',
+                                                            cursor: 'pointer',
+                                                            transition: 'background 0.2s'
+                                                        }}
+                                                        onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'}
+                                                        onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                                                    >
+                                                        {device.name}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
                         {monitorSize && !isNaN(parseFloat(monitorSize)) && parseFloat(monitorSize) > 0 && (
