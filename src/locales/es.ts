@@ -1,4 +1,8 @@
 export const es = {
+
+    meta: {
+        title: "Regla en línea"
+    },
     header: {
         title: "RulerHero",
         features: "Características",

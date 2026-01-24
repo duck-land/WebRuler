@@ -1,4 +1,7 @@
 export const ru = {
+    meta: {
+        title: "Онлайн линейка"
+    },
     header: {
         title: "RulerHero",
         features: "Функции",

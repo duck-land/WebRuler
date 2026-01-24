@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Link from 'next/link';
@@ -8,6 +9,10 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function Home() {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    document.title = t.meta.title;
+  }, [t.meta.title]);
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

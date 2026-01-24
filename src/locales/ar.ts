@@ -1,4 +1,8 @@
 export const ar = {
+
+    meta: {
+        title: "مسطرة اون لاين"
+    },
     header: {
         title: "WebRuler",
         features: "الميزات",

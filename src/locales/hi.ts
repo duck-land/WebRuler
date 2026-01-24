@@ -1,4 +1,7 @@
 export const hi = {
+    meta: {
+        title: "ऑनलाइन रूलर"
+    },
     header: {
         title: "WebRuler",
         features: "विशेषताएं",

@@ -50,6 +50,9 @@ type Translations = typeof en & {
         cookies: { title: string; desc: string; };
         retention: { title: string; desc: string; };
     };
+    meta: {
+        title: string;
+    };
     termsContent: {
         title: string;
         purpose: { title: string; desc: string; };

@@ -1,4 +1,7 @@
 export const ja = {
+    meta: {
+        title: "オンライン定規"
+    },
     header: {
         title: "RulerHero",
         features: "機能",

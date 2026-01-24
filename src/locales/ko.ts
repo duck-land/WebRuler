@@ -1,4 +1,7 @@
 export const ko = {
+    meta: {
+        title: "온라인 자"
+    },
     header: {
         title: "RulerHero",
         features: "기능 소개",

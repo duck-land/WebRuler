@@ -1,4 +1,7 @@
 export const zh = {
+    meta: {
+        title: "在线尺子"
+    },
     header: {
         title: "RulerHero",
         features: "功能特点",

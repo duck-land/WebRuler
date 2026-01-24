@@ -1,4 +1,8 @@
 export const en = {
+
+    meta: {
+        title: "Online Ruler"
+    },
     header: {
         title: "RulerHero",
         features: "Features",
