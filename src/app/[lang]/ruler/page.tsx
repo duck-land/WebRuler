@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaCog, FaRulerCombined, FaRedo } from 'react-icons/fa';
-import InteractiveRuler from '../../components/InteractiveRuler';
-import CalibrationModal from '../../components/CalibrationModal';
-import { useLanguage } from '../../context/LanguageContext';
+import InteractiveRuler from '../../../components/InteractiveRuler';
+import CalibrationModal from '../../../components/CalibrationModal';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export default function RulerPage() {
     const { t, language, setLanguage } = useLanguage();
@@ -173,7 +173,7 @@ export default function RulerPage() {
                 zIndex: 50,
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                    <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff', fontSize: '0.9rem', opacity: 0.8 }}>
+                    <Link href={`/${language}`} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff', fontSize: '0.9rem', opacity: 0.8 }}>
                         <FaArrowLeft />
                     </Link>
                 </div>

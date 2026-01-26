@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <footer style={{
@@ -26,10 +26,10 @@ export default function Footer() {
                     {t.home.footer}
                 </div>
                 <div style={{ display: 'flex', gap: '1.5rem' }}>
-                    <Link href="/privacy" className="footer-link">
+                    <Link href={`/${language}/privacy`} className="footer-link">
                         {t.footerLinks.privacy}
                     </Link>
-                    <Link href="/terms" className="footer-link">
+                    <Link href={`/${language}/terms`} className="footer-link">
                         {t.footerLinks.terms}
                     </Link>
                 </div>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 import Script from "next/script";
-import { LanguageProvider } from "../context/LanguageContext";
+
 
 export default function RootLayout({
   children,
@@ -47,9 +47,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+        {children}
       </body>
     </html>
   );

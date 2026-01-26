@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Header from '../../components/Header';
-import { useLanguage } from '../../context/LanguageContext';
+import Header from '../../../components/Header';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export default function TermsPage() {
     const { t } = useLanguage();

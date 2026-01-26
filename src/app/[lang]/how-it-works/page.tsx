@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import Link from 'next/link';
 import { FaCreditCard, FaDesktop, FaArrowsAlt, FaExpandArrowsAlt, FaMobileAlt, FaCog, FaSlidersH } from 'react-icons/fa';
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export default function HowItWorks() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0f0f12', color: '#fff' }}>
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                     <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
                         {t.howItWorks.ctaDesc}
                     </p>
-                    <Link href="/ruler" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
+                    <Link href={`/${language}/ruler`} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
                         {t.howItWorks.ctaButton}
                     </Link>
                 </div>

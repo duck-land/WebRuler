@@ -63,7 +63,7 @@ type Translations = typeof en & {
     };
 };
 
-type Language = 'en' | 'ko' | 'zh' | 'ja' | 'es' | 'hi' | 'fr' | 'ar' | 'ru';
+export type Language = 'en' | 'ko' | 'zh' | 'ja' | 'es' | 'hi' | 'fr' | 'ar' | 'ru';
 
 interface LanguageContextType {
     language: Language;
@@ -85,32 +85,41 @@ const translations: Record<Language, Translations> = {
     ru: ru as Translations,
 };
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguage] = useState<Language>('en'); // Default to English initially
-    const [isLoaded, setIsLoaded] = useState(false);
+export function LanguageProvider({ children, initialLang }: { children: ReactNode, initialLang?: Language }) {
+    // Default to URL lang or English
+    const [language, setLanguage] = useState<Language>(initialLang || 'en');
 
     useEffect(() => {
-        // Load persisted language or detect browser language
-        const validLangs: Language[] = ['en', 'ko', 'zh', 'ja', 'es', 'hi', 'fr', 'ar', 'ru'];
-        const savedLang = localStorage.getItem('rulerhero_lang') as Language;
-
-        if (savedLang && validLangs.includes(savedLang)) {
-            setLanguage(savedLang);
-        } else {
-            const browserLang = navigator.language.slice(0, 2);
-            if (validLangs.includes(browserLang as Language)) {
-                setLanguage(browserLang as Language);
-            }
+        if (initialLang) {
+            setLanguage(initialLang);
         }
-        setIsLoaded(true);
-    }, []);
+    }, [initialLang]);
 
     const handleSetLanguage = (lang: Language) => {
         setLanguage(lang);
         localStorage.setItem('rulerhero_lang', lang);
+
+        // Redirect to new language path
+        // Assume current path is /[lang]/...
+        // We need to replace the first segment.
+        const path = window.location.pathname;
+        const segments = path.split('/').filter(Boolean);
+
+        // If first segment is a known lang, replace it
+        // If not (e.g. root), prepend it (though root should be redirecting)
+        const validLangs: string[] = ['en', 'ko', 'zh', 'ja', 'es', 'hi', 'fr', 'ar', 'ru'];
+
+        if (segments.length > 0 && validLangs.includes(segments[0])) {
+            segments[0] = lang;
+        } else {
+            segments.unshift(lang);
+        }
+
+        const newPath = '/' + segments.join('/');
+        window.location.href = newPath;
     };
 
-    let t: Translations = en as Translations; // Cast to Translations to satisfy type checking
+    let t: Translations = en as Translations;
     switch (language) {
         case 'ko': t = ko as Translations; break;
         case 'zh': t = zh as Translations; break;
@@ -122,9 +131,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         case 'ru': t = ru as Translations; break;
         default: t = en as Translations;
     }
-
-    // Prevent flash of wrong content (optional, but good for UX)
-    // Or just render immediately with default. Let's render immediately for speed, effect adjusts it fast enough usually.
 
     return (
         <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
