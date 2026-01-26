@@ -43,15 +43,9 @@ export default function RootLayout({
         </Script>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4254452607996009"
           crossOrigin="anonymous"
           strategy="afterInteractive"
-        />
-        <Script
-          id="adsbygoogle-init"
-          strategy="afterInteractive" // 페이지 로드 후 실행되도록 설정
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4254452607996009" // 본인의 클라이언트 ID로 교체
-          crossOrigin="anonymous"
         />
         {children}
       </body>
