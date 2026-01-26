@@ -29,7 +29,7 @@ export default function RootPage() {
       background: '#0a0a0c',
       color: 'white'
     }}>
-      <p>Loading RulerHero..</p>
+      <p>Loading RulerHero...</p>
     </div>
   );
 }
