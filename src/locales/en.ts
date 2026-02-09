@@ -91,5 +91,27 @@ export const en = {
         liability: { title: "Article 3 (Limitation of Liability)", desc: "1. The measurement values provided by this Service may differ from actual values depending on the user's monitor resolution, screen size settings, etc.<br />2. The Service does not guarantee precise measurement and is not responsible for any damages to the user caused by measurement errors. Please be sure to reconfirm important figures with an actual measuring instrument." },
         obligations: { title: "Article 4 (User Obligations)", desc: "Users must not use the Service for unfair purposes or engage in acts that harm the system." },
         updates: { title: "Article 5 (Changes to Terms)", desc: "The Service may change the terms if necessary, and will notify via notice within the site." }
+    },
+    accuracy: {
+        title: "The Secret of Accuracy: Calibration & Pixels",
+        intro: "Many users ask, \"Why does the online ruler look different on every monitor?\" This is due to the relationship between digital 'pixels' and physical 'length'.",
+        sections: [
+            {
+                title: "1. Pixels are not absolute length",
+                desc: "While centimeters and inches are absolute units, pixels are relative. The physical size of 100 pixels on a 24-inch monitor is completely different from 100 pixels on a 6-inch smartphone."
+            },
+            {
+                title: "2. Screen Density, PPI (Pixels Per Inch)",
+                desc: "PPI is the number of pixels in one inch. Higher PPI means pixels are packed more densely. Since every monitor has a different PPI, accurate measurement is impossible without calibration."
+            },
+            {
+                title: "3. The Math Behind Calibration",
+                desc: "When you calibrate with a credit card, RulerHero calculates how many pixels that physical length (3.37 inch) occupies on your screen to find your exact PPI."
+            },
+            {
+                title: "4. Why use a Credit Card?",
+                desc: "Credit cards follow the international ISO/IEC 7810 standard (85.60mm × 53.98mm), making them the perfect universal reference object with minimal error."
+            }
+        ]
     }
 };

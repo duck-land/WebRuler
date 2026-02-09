@@ -53,7 +53,10 @@ export const fr = {
             position: { title: 'Position de la Règle', desc: 'Changer la position' },
             unit: { title: 'Unité de Mesure', desc: 'Changer d\'unité' },
             tick: { title: 'Direction des Graduations', desc: 'Inverser les graduations' }
-        }
+        },
+        back: "Retour",
+        calibrate: "Calibrer",
+        reset: "Réinitialiser"
     },
     calibration: {
         title: 'Calibration',
@@ -87,5 +90,27 @@ export const fr = {
         liability: { title: "Article 3 (Limitation de Responsabilité)", desc: "1. Les valeurs de mesure fournies par ce Service peuvent différer des valeurs réelles en fonction de la résolution du moniteur de l'utilisateur, des paramètres de taille d'écran, etc.<br />2. Le Service ne garantit pas une mesure précise et n'est pas responsable des dommages causés à l'utilisateur par des erreurs de mesure. Veuillez vous assurer de reconfirmer les chiffres importants avec un instrument de mesure réel." },
         obligations: { title: "Article 4 (Obligations de l'Utilisateur)", desc: "Les utilisateurs ne doivent pas utiliser le Service à des fins déloyales ni s'engager dans des actes qui nuisent au système." },
         updates: { title: "Article 5 (Modification des Conditions)", desc: "Le Service peut modifier les conditions si nécessaire et en informera via une notification sur le site." }
+    },
+    accuracy: {
+        title: "Le Secret de la Précision : Calibration & Pixels",
+        intro: "De nombreux utilisateurs demandent : \"Pourquoi la règle en ligne semble-t-elle différente sur chaque écran ?\" Cela est dû à la relation entre les 'pixels' numériques et la 'longueur' physique.",
+        sections: [
+            {
+                title: "1. Les pixels ne sont pas une longueur absolue",
+                desc: "Alors que les centimètres et les pouces sont des unités absolues, les pixels sont relatifs. La taille physique de 100 pixels sur un moniteur de 24 pouces est complètement différente de 100 pixels sur un smartphone de 6 pouces."
+            },
+            {
+                title: "2. Densité d'écran, PPI (Pixels Par Pouce)",
+                desc: "PPI est le nombre de pixels dans un pouce. Un PPI plus élevé signifie que les pixels sont plus denses. Comme chaque moniteur a un PPI différent, une mesure précise est impossible sans calibration."
+            },
+            {
+                title: "3. Les mathématiques derrière la calibration",
+                desc: "Lorsque vous calibrez avec une carte de crédit, RulerHero calcule combien de pixels cette longueur physique (3,37 pouces) occupe sur votre écran pour trouver votre PPI exact."
+            },
+            {
+                title: "4. Pourquoi utiliser une carte de crédit ?",
+                desc: "Les cartes de crédit suivent la norme internationale ISO/IEC 7810 (85,60 mm × 53,98 mm), ce qui en fait l'objet de référence universel parfait avec une erreur minimale."
+            }
+        ]
     }
 };

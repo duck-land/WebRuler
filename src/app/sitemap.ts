@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://rulerhero.com';
     const languages = ['en', 'ko', 'zh', 'ja', 'es', 'hi', 'fr', 'ar', 'ru'];
     // Pages that exist for each language
-    const pages = ['', 'ruler', 'terms', 'privacy', 'how-it-works'];
+    const pages = ['', 'ruler', 'terms', 'privacy'];
 
     const sitemapEntries: MetadataRoute.Sitemap = [];
 

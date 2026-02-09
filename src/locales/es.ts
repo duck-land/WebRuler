@@ -54,7 +54,10 @@ export const es = {
             position: { title: 'Posición de la Regla', desc: 'Cambiar posición de la regla' },
             unit: { title: 'Unidad de Medida', desc: 'Cambiar tipo de unidad' },
             tick: { title: 'Dirección de Marcas', desc: 'Invertir marcas de la regla' }
-        }
+        },
+        back: "Atrás",
+        calibrate: "Calibrar",
+        reset: "Restablecer"
     },
     calibration: {
         title: 'Calibración',
@@ -88,5 +91,27 @@ export const es = {
         liability: { title: "Artículo 3 (Limitación de Responsabilidad)", desc: "1. Los valores de medición proporcionados por este Servicio pueden diferir de los valores reales según la resolución del monitor del usuario, la configuración del tamaño de la pantalla, etc.<br />2. El Servicio no garantiza una medición precisa y no es responsable de los daños al usuario causados por errores de medición. Asegúrese de reconfirmar las cifras importantes con un instrumento de medición real." },
         obligations: { title: "Artículo 4 (Obligaciones del Usuario)", desc: "Los usuarios no deben utilizar el Servicio con fines desleales ni realizar actos que dañen el sistema." },
         updates: { title: "Artículo 5 (Cambios en los Términos)", desc: "El Servicio puede cambiar los términos si es necesario y lo notificará mediante un aviso dentro del sitio." }
+    },
+    accuracy: {
+        title: "El Secreto de la Precisión: Calibración y Píxeles",
+        intro: "Muchos usuarios preguntan: \"¿Por qué la regla en línea se ve diferente en cada monitor?\" Esto se debe a la relación entre los 'píxeles' digitales y la 'longitud' física.",
+        sections: [
+            {
+                title: "1. Los píxeles no son una longitud absoluta",
+                desc: "Mientras que los centímetros y las pulgadas son unidades absolutas, los píxeles son relativos. El tamaño físico de 100 píxeles en un monitor de 24 pulgadas es completamente diferente al de 100 píxeles en un teléfono inteligente de 6 pulgadas."
+            },
+            {
+                title: "2. Densidad de pantalla, PPI (Píxeles por pulgada)",
+                desc: "PPI es el número de píxeles en una pulgada. Un PPI más alto significa que los píxeles están empaquetados más densamente. Como cada monitor tiene un PPI diferente, la medición precisa es imposible sin calibración."
+            },
+            {
+                title: "3. La matemática detrás de la calibración",
+                desc: "Cuando calibras con una tarjeta de crédito, RulerHero calcula cuántos píxeles ocupa esa longitud física (3.37 pulgadas) en tu pantalla para encontrar tu PPI exacto."
+            },
+            {
+                title: "4. ¿Por qué usar una tarjeta de crédito?",
+                desc: "Las tarjetas de crédito siguen el estándar internacional ISO/IEC 7810 (85.60mm × 53.98mm), lo que las convierte en el objeto de referencia universal perfecto con un error mínimo."
+            }
+        ]
     }
 };

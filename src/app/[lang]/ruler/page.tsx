@@ -226,6 +226,7 @@ export default function RulerPage() {
                         style={buttonStyle}
                     >
                         <FaCog />
+                        <span>{t.ruler.calibrate}</span>
                     </button>
 
                 </div>

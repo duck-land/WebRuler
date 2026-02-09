@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import HowItWorks from '../../components/HowItWorks';
+import AccuracySection from '../../components/AccuracySection';
 import Link from 'next/link';
 import { FaCompressArrowsAlt, FaMobileAlt, FaDraftingCompass } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
@@ -66,7 +68,7 @@ export default function Home() {
             <Link href={`/${language}/ruler`} className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
               {t.home.startMeasuring}
             </Link>
-            <Link href={`/${language}/how-it-works`} className="btn" style={{
+            <Link href="#how-it-works" className="btn" style={{
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid var(--border)',
               fontSize: '1.1rem',
@@ -129,6 +131,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <HowItWorks />
+
+      <AccuracySection />
 
       <Footer />
     </main>
