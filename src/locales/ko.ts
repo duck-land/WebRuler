@@ -72,9 +72,15 @@ export const ko = {
         calibrate: "보정",
         reset: "초기화"
     },
+    contact: {
+        title: "문의하기",
+        desc: "문의사항이나 피드백이 있으시면 편하게 연락주세요.",
+        email: "이메일"
+    },
     footerLinks: {
         privacy: '개인정보처리방침',
-        terms: '이용약관'
+        terms: '이용약관',
+        contact: '문의하기'
     },
     privacyContent: {
         title: "개인정보 처리방침",

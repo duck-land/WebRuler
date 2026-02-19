@@ -73,9 +73,15 @@ export const es = {
         currentPPI: 'PPI Actual:',
         popularDevices: 'Dispositivos populares'
     },
+    contact: {
+        title: "Contáctenos",
+        desc: "Si tiene alguna pregunta o comentario, no dude en contactarnos.",
+        email: "Correo electrónico"
+    },
     footerLinks: {
         privacy: 'Política de Privacidad',
-        terms: 'Términos de Servicio'
+        terms: 'Términos de Servicio',
+        contact: 'Contacto'
     },
     privacyContent: {
         title: "Política de Privacidad",

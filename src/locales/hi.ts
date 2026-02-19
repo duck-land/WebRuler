@@ -72,9 +72,15 @@ export const hi = {
         currentPPI: 'वर्तमान PPI:',
         popularDevices: 'लोकप्रिय उपकरण'
     },
+    contact: {
+        title: "हमसे संपर्क करें",
+        desc: "यदि आपके कोई प्रश्न या प्रतिक्रिया है, तो कृपया हमसे संपर्क करने में संकोच न करें।",
+        email: "ईमेल"
+    },
     footerLinks: {
         privacy: 'गोपनीयता नीति',
-        terms: 'सेवा की शर्तें'
+        terms: 'सेवा की शर्तें',
+        contact: 'संपर्क'
     },
     privacyContent: {
         title: "गोपनीयता नीति",

@@ -73,9 +73,15 @@ export const en = {
             tick: { title: 'Tick Direction', desc: 'Flip tick marks' }
         }
     },
+    contact: {
+        title: "Contact Us",
+        desc: "If you have any questions or feedback, please feel free to contact us.",
+        email: "Email"
+    },
     footerLinks: {
         privacy: 'Privacy Policy',
-        terms: 'Terms of Service'
+        terms: 'Terms of Service',
+        contact: 'Contact'
     },
     privacyContent: {
         title: "Privacy Policy",

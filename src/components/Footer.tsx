@@ -32,6 +32,9 @@ export default function Footer() {
                     <Link href={`/${language}/terms`} className="footer-link">
                         {t.footerLinks.terms}
                     </Link>
+                    <Link href={`/${language}/contact`} className="footer-link">
+                        {t.footerLinks.contact}
+                    </Link>
                 </div>
             </div>
         </footer>

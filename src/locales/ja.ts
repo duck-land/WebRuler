@@ -72,9 +72,15 @@ export const ja = {
         currentPPI: '現在のPPI:',
         popularDevices: '人気デバイス'
     },
+    contact: {
+        title: "お問い合わせ",
+        desc: "ご質問やご意見がございましたら、お気軽にお問い合わせください。",
+        email: "メール"
+    },
     footerLinks: {
         privacy: 'プライバシーポリシー',
-        terms: '利用規約'
+        terms: '利用規約',
+        contact: 'お問い合わせ'
     },
     privacyContent: {
         title: "プライバシーポリシー",

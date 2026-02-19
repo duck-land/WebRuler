@@ -58,9 +58,15 @@ export const zh = {
         calibrate: "校准",
         reset: "重置"
     },
+    contact: {
+        title: "联系我们",
+        desc: "如果您有任何问题或反馈，请随时与我们联系。",
+        email: "电子邮件"
+    },
     footerLinks: {
         privacy: '隐私政策',
-        terms: '服务条款'
+        terms: '服务条款',
+        contact: '联系我们'
     },
     privacyContent: {
         title: "隐私政策",

@@ -59,9 +59,15 @@ export const ar = {
         calibrate: "معايرة",
         reset: "إعادة تعيين"
     },
+    contact: {
+        title: "اتصل بنا",
+        desc: "إذا كان لديك أي أسئلة أو ملاحظات، لا تتردد في الاتصال بنا.",
+        email: "البريد الإلكتروني"
+    },
     footerLinks: {
         privacy: 'سياسة الخصوصية',
-        terms: 'شروط الخدمة'
+        terms: 'شروط الخدمة',
+        contact: 'اتصل بنا'
     },
     privacyContent: {
         title: "سياسة الخصوصية",

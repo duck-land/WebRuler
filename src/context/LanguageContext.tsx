@@ -39,9 +39,15 @@ type Translations = typeof en & {
         controls: RulerControls;
     };
     calibration: CalibrationStrings;
+    contact: {
+        title: string;
+        desc: string;
+        email: string;
+    };
     footerLinks: {
         privacy: string;
         terms: string;
+        contact: string;
     };
     privacyContent: {
         title: string;
