@@ -51,9 +51,24 @@ export const es = {
     ruler: {
         title: 'RulerHero',
         controls: {
-            position: { title: 'Posición de la Regla', desc: 'Cambiar posición de la regla' },
-            unit: { title: 'Unidad de Medida', desc: 'Cambiar tipo de unidad' },
-            tick: { title: 'Dirección de Marcas', desc: 'Invertir marcas de la regla' }
+            position: { title: 'Posición', desc: 'Cambiar la posición de la regla' },
+            unit: { title: 'Unidad', desc: 'Cambiar tipo de unidad' },
+            tick: { title: 'Dirección de Marcas', desc: 'Invertir marcas' }
+        },
+        tabs: {
+            record: 'Registro',
+            settings: 'Ajustes',
+            faq: 'FAQ'
+        },
+        record: {
+            empty: 'No hay registros.',
+            guide: '💡 Consejo: Toque el espacio vacío para añadir un marcador y arrastre la línea.'
+        },
+        faq: {
+            q1: { q: 'Q. ¿Son exactas las medidas?', a: 'A. Sí, se calcula en base a su PPI físico. Asegúrese de que el zoom esté al 100%.' },
+            q2: { q: 'Q. ¿Cómo mido varios objetos?', a: 'A. Toque en el espacio vacío para crear varios marcadores y arrástrelos.' },
+            q3: { q: 'Q. ¿Cómo elimino un marcador?', a: 'A. Toque el botón ✕ bajo la etiqueta o en la lista de registros.' },
+            q4: { q: 'Q. ¿Funciona en smartphones?', a: 'A. Sí, coloque un objeto (como una moneda) en la pantalla y utilice los marcadores.' }
         },
         back: "Atrás",
         calibrate: "Calibrar",

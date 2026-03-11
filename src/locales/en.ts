@@ -71,6 +71,21 @@ export const en = {
             position: { title: 'Ruler Position', desc: 'Switch ruler position' },
             unit: { title: 'Measurement Unit', desc: 'Switch unit type' },
             tick: { title: 'Tick Direction', desc: 'Flip tick marks' }
+        },
+        tabs: {
+            record: 'Record',
+            settings: 'Settings',
+            faq: 'FAQ'
+        },
+        record: {
+            empty: 'No measurements recorded.',
+            guide: '💡 Tip: Tap an empty space to add a marker, and drag the line to adjust.'
+        },
+        faq: {
+            q1: { q: 'Q. Are the measurements accurate?', a: 'A. Yes, it calculates based on your physical PPI. Please ensure your browser zoom is at 100%.' },
+            q2: { q: 'Q. How do I measure multiple items?', a: 'A. Tap anywhere on the ruler or empty space to create multiple marker lines. You can drag them easily.' },
+            q3: { q: 'Q. How do I delete a marker?', a: 'A. Tap the circular ✕ button below the marker label or the ✕ in the Record list.' },
+            q4: { q: 'Q. Does it work on smartphones?', a: 'A. Yes, place an object (like a coin) on the screen and drag the markers to measure it.' }
         }
     },
     contact: {

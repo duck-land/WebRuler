@@ -54,6 +54,21 @@ export const fr = {
             unit: { title: 'Unité de Mesure', desc: 'Changer d\'unité' },
             tick: { title: 'Direction des Graduations', desc: 'Inverser les graduations' }
         },
+        tabs: {
+            record: 'Enregistrement',
+            settings: 'Paramètres',
+            faq: 'FAQ'
+        },
+        record: {
+            empty: 'Aucun enregistrement.',
+            guide: '💡 Conseil: Touchez un espace vide pour ajouter un marqueur et faites glisser la ligne.'
+        },
+        faq: {
+            q1: { q: 'Q. Les mesures sont-elles exactes ?', a: 'A. Oui, le calcul est basé sur votre PPI physique. Assurez-vous que le zoom est à 100%.' },
+            q2: { q: 'Q. Comment mesurer plusieurs objets ?', a: 'A. Touchez un espace vide pour créer d\'autres marqueurs et faites-les glisser.' },
+            q3: { q: 'Q. Comment supprimer un marqueur ?', a: 'A. Appuyez sur le bouton ✕ sous l\'étiquette ou dans la liste d\'enregistrement.' },
+            q4: { q: 'Q. Cela fonctionne-t-il sur smartphone ?', a: 'A. Oui, placez un objet (comme une pièce) sur l\'écran et déplacez les marqueurs.' }
+        },
         back: "Retour",
         calibrate: "Calibrer",
         reset: "Réinitialiser"

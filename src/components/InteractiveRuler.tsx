@@ -1,16 +1,41 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface InteractiveRulerProps {
     unit: 'cm' | 'inch';
     ppi: number;
     orientation: 'horizontal' | 'vertical';
     isFlipped?: boolean;
+    markers: Marker[];
+    setMarkers: React.Dispatch<React.SetStateAction<Marker[]>>;
 }
 
-export default function InteractiveRuler({ unit, ppi, orientation, isFlipped = false }: InteractiveRulerProps) {
+interface Marker {
+    id: number;
+    pos: number;
+    color: string;
+}
+
+// A palette of distinct colors for the markers
+const MARKER_COLORS = [
+    '#ef4444', // Red
+    '#3b82f6', // Blue
+    '#10b981', // Green
+    '#f59e0b', // Amber
+    '#8b5cf6', // Purple
+    '#ec4899', // Pink
+    '#06b6d4', // Cyan
+    '#f97316'  // Orange
+];
+
+export default function InteractiveRuler({ unit, ppi, orientation, isFlipped = false, markers, setMarkers }: InteractiveRulerProps) {
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+    const [draggingMarkerId, setDraggingMarkerId] = useState<number | null>(null);
+    const rulerRef = useRef<HTMLDivElement>(null);
+
+    // Keep track of the next color index to assign
+    const nextColorIndex = useRef(0);
 
     useEffect(() => {
         // Initial set
@@ -33,7 +58,7 @@ export default function InteractiveRuler({ unit, ppi, orientation, isFlipped = f
 
     const length = orientation === 'horizontal' ? windowSize.width : windowSize.height;
 
-    // Memoize calculations to prevent heavy re-loops on every render if props didn't change (unlikely but good practice)
+    // Memoize calculations
     const { totalInches, totalCm } = React.useMemo(() => {
         return {
             totalInches: Math.ceil(length / ppi),
@@ -41,8 +66,64 @@ export default function InteractiveRuler({ unit, ppi, orientation, isFlipped = f
         };
     }, [length, ppi]);
 
-
     const isHorizontal = orientation === 'horizontal';
+
+    const handlePointerDown = (e: React.PointerEvent) => {
+        const target = e.target as HTMLElement;
+
+        // Check if delete button was clicked
+        if (target.closest('[data-delete-btn]')) {
+            const markerId = parseInt(target.closest('[data-delete-btn]')!.getAttribute('data-delete-btn')!, 10);
+            setMarkers(prev => prev.filter(m => m.id !== markerId));
+            return; // Don't initiate drag or add
+        }
+
+        if (!rulerRef.current) return;
+
+        const isMarker = target.closest('[data-marker-id]');
+
+        const rect = rulerRef.current.getBoundingClientRect();
+        let pos = isHorizontal ? e.clientX - rect.left : e.clientY - rect.top;
+        pos = Math.max(0, Math.min(pos, isHorizontal ? rect.width : rect.height));
+
+        if (isMarker) {
+            // Start dragging existing marker
+            const markerId = parseInt(isMarker.getAttribute('data-marker-id')!, 10);
+            setDraggingMarkerId(markerId);
+        } else {
+            // Add new marker
+            const color = MARKER_COLORS[nextColorIndex.current % MARKER_COLORS.length];
+            nextColorIndex.current += 1;
+            const newMarker: Marker = { id: Date.now(), pos, color };
+            setMarkers([...markers, newMarker]);
+            setDraggingMarkerId(newMarker.id);
+        }
+        (e.target as Element).setPointerCapture(e.pointerId);
+    };
+
+    const handlePointerMove = (e: React.PointerEvent) => {
+        if (draggingMarkerId === null || !rulerRef.current) return;
+        const rect = rulerRef.current.getBoundingClientRect();
+        let pos = isHorizontal ? e.clientX - rect.left : e.clientY - rect.top;
+        pos = Math.max(0, Math.min(pos, isHorizontal ? rect.width : rect.height));
+
+        setMarkers(prev => prev.map(m => m.id === draggingMarkerId ? { ...m, pos } : m));
+    };
+
+    const handlePointerUp = (e: React.PointerEvent) => {
+        setDraggingMarkerId(null);
+        if ((e.target as Element).hasPointerCapture(e.pointerId)) {
+            (e.target as Element).releasePointerCapture(e.pointerId);
+        }
+    };
+
+    const getMeasurementText = (pos: number) => {
+        if (unit === 'cm') {
+            return (pos / (ppi / 2.54)).toFixed(2) + ' cm';
+        } else {
+            return (pos / ppi).toFixed(2) + ' in';
+        }
+    };
 
     // Base Styles
     const rulerStyle: React.CSSProperties = isHorizontal ? {
@@ -51,22 +132,24 @@ export default function InteractiveRuler({ unit, ppi, orientation, isFlipped = f
         background: '#fff',
         color: '#000',
         position: 'relative',
-        overflow: 'hidden',
         border: '1px solid #ddd',
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
         display: 'flex',
-        alignItems: isFlipped ? 'flex-start' : 'flex-end'
+        alignItems: isFlipped ? 'flex-start' : 'flex-end',
+        touchAction: 'none',
+        cursor: 'crosshair'
     } : {
         width: '50px',
         height: '100%',
         background: '#fff',
         color: '#000',
         position: 'relative',
-        overflow: 'hidden',
         border: '1px solid #ddd',
         boxShadow: '2px 0 4px rgba(0,0,0,0.1)',
         display: 'flex',
-        justifyContent: isFlipped ? 'flex-start' : 'flex-end'
+        justifyContent: isFlipped ? 'flex-start' : 'flex-end',
+        touchAction: 'none',
+        cursor: 'crosshair'
     };
 
     // Memoize the tick rendering
@@ -195,9 +278,128 @@ export default function InteractiveRuler({ unit, ppi, orientation, isFlipped = f
             msUserSelect: 'none'
         }}>
 
-            <div style={rulerStyle}>
+            <div
+                style={rulerStyle}
+                ref={rulerRef}
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={handlePointerUp}
+            >
                 {ticks}
+                {markers.map(marker => (
+                    <div
+                        key={marker.id}
+                        data-marker-id={marker.id}
+                        style={isHorizontal ? {
+                            position: 'absolute',
+                            left: `${marker.pos - 10}px`, // Increased hit area
+                            top: 0,
+                            height: '100px',
+                            width: '20px', // Hit area width
+                            display: 'flex',
+                            justifyContent: 'center',
+                            zIndex: 10,
+                            cursor: 'ew-resize'
+                        } : {
+                            position: 'absolute',
+                            top: `${marker.pos - 10}px`,
+                            left: 0,
+                            width: '100px',
+                            height: '20px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            zIndex: 10,
+                            cursor: 'ns-resize'
+                        }}
+                    >
+                        {/* Visible Line */}
+                        <div style={isHorizontal ? {
+                            width: '2px',
+                            height: '100%',
+                            backgroundColor: marker.color
+                        } : {
+                            height: '2px',
+                            width: '100%',
+                            backgroundColor: marker.color
+                        }} />
+
+                        {/* Label and Delete Wrapper */}
+                        <div style={isHorizontal ? {
+                            position: 'absolute',
+                            top: '90%',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            gap: '2px',
+                            zIndex: 20,
+                        } : {
+                            position: 'absolute',
+                            left: '90%',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            gap: '2px',
+                            zIndex: 20,
+                        }}>
+                            {/* Label Badge */}
+                            <div style={isHorizontal ? {
+                                backgroundColor: marker.color,
+                                color: 'white',
+                                padding: '4px 6px',
+                                borderRadius: '4px',
+                                fontSize: '0.75rem',
+                                fontWeight: 'bold',
+                                whiteSpace: 'nowrap',
+                                boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+                                pointerEvents: 'none'
+                            } : {
+                                backgroundColor: marker.color,
+                                color: 'white',
+                                padding: '4px 6px',
+                                borderRadius: '4px',
+                                fontSize: '0.75rem',
+                                fontWeight: 'bold',
+                                whiteSpace: 'nowrap',
+                                writingMode: 'vertical-rl',
+                                transform: 'rotate(180deg)',
+                                boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+                                pointerEvents: 'none'
+                            }}>
+                                {getMeasurementText(marker.pos)}
+                            </div>
+
+                            {/* Circular Delete Button */}
+                            <div
+                                data-delete-btn={marker.id}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: '20px',
+                                    height: '20px',
+                                    backgroundColor: marker.color,
+                                    color: 'white',
+                                    borderRadius: '50%',
+                                    cursor: 'pointer',
+                                    fontSize: '0.7rem',
+                                    lineHeight: 1,
+                                    boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                                    pointerEvents: 'auto',
+                                    flexShrink: 0
+                                }}
+                            >
+                                ✕
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
 }
+

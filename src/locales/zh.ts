@@ -50,9 +50,24 @@ export const zh = {
     ruler: {
         title: 'RulerHero',
         controls: {
-            position: { title: '尺子位置', desc: '切换尺子显示位置' },
-            unit: { title: '测量单位', desc: '切换 cm/inch' },
+            position: { title: '尺子位置', desc: '更改尺子显示的位置' },
+            unit: { title: '测量单位', desc: '切换厘米(cm)/英寸(inch)' },
             tick: { title: '刻度方向', desc: '翻转刻度显示方向' }
+        },
+        tabs: {
+            record: '记录',
+            settings: '设置',
+            faq: 'FAQ'
+        },
+        record: {
+            empty: '没有记录。',
+            guide: '💡 提示: 触摸空白处添加标记，然后拖动调整。'
+        },
+        faq: {
+            q1: { q: 'Q. 测量的长度准确吗？', a: 'A. 是的，它是基于您的物理 PPI 计算的，因此非常准确。请确保浏览器缩放比例为 100%。' },
+            q2: { q: 'Q. 如何同时测量多个物品？', a: 'A. 触摸尺子或空白处即可创建多个标记，您可以轻松拖动它们。' },
+            q3: { q: 'Q. 如何删除标记？', a: 'A. 点击标记下方的 ✕ 按钮或记录列表中的 ✕ 按钮即可删除。' },
+            q4: { q: 'Q. 可以在手机上使用吗？', a: 'A. 可以，将硬币等物品放在屏幕上，拖动标记即可测量。' }
         },
         back: "返回",
         calibrate: "校准",
