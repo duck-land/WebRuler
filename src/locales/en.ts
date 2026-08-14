@@ -6,6 +6,7 @@ export const en = {
     header: {
         title: "RulerHero",
         features: "Features",
+        guides: "Guides",
         openRuler: "Open Ruler"
     },
     home: {
@@ -94,6 +95,7 @@ export const en = {
         email: "Email"
     },
     footerLinks: {
+        guides: 'Guides',
         privacy: 'Privacy Policy',
         terms: 'Terms of Service',
         contact: 'Contact'
@@ -102,7 +104,7 @@ export const en = {
         title: "Privacy Policy",
         intro: "RulerHero (hereinafter 'Service') values your privacy and complies with applicable laws.",
         items: { title: "1. Collected Information", desc: "This Service can be used without registration and does not collect direct personal identification information. However, information such as cookies, access IP, and browser type may be automatically generated and collected during use." },
-        cookies: { title: "2. Cookies & Third-Party Tools", desc: "This Service uses the following tools:<br />Google Analytics: Uses cookies for service usage statistics analysis.<br />Google AdSense: Uses cookies to provide personalized ads. Users can opt-out of cookie collection via browser settings." },
+        cookies: { title: "2. Cookies & Third-Party Advertising Tools", desc: "This Service utilizes third-party analytics and advertising services, including Google Analytics and Google AdSense.<br /><br />• <b>Google Analytics:</b> Uses cookies to analyze service usage statistics and improve user experience.<br />• <b>Google AdSense & Third-Party Vendors:</b> Google and third-party advertising vendors use cookies (such as DART cookies) to serve personalized ads based on a user's prior visits to this website or other websites on the Internet.<br />• <b>Opt-out of Personalized Ads:</b> Users may opt out of personalized advertising by visiting <a href='https://www.google.com/settings/ads' target='_blank' rel='noopener noreferrer' style='color:#38bdf8; text-decoration:underline;'>Google Ads Settings</a> or <a href='https://www.aboutads.info' target='_blank' rel='noopener noreferrer' style='color:#38bdf8; text-decoration:underline;'>www.aboutads.info</a>. You may also disable cookies via your browser settings." },
         retention: { title: "3. Retention & Destruction", desc: "The Service destroys personal information without delay once its purpose is achieved." }
     },
     termsContent: {

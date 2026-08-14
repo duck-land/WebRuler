@@ -148,8 +148,50 @@ export default function RulerPage() {
             flexDirection: 'column',
             overflow: 'hidden',
             position: 'relative',
-            // touchAction: 'none' REMOVED to allow pull-to-refresh
         }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": t.ruler.faq?.q1?.q || "Are the measurements accurate?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": t.ruler.faq?.q1?.a || "Yes, it calculates based on physical PPI."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": t.ruler.faq?.q2?.q || "How do I measure multiple items?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": t.ruler.faq?.q2?.a || "Tap anywhere to create multiple marker lines."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": t.ruler.faq?.q3?.q || "How do I delete a marker?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": t.ruler.faq?.q3?.a || "Tap the circular ✕ button."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": t.ruler.faq?.q4?.q || "Does it work on smartphones?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": t.ruler.faq?.q4?.a || "Yes, place an object on the screen and drag markers."
+                                }
+                            }
+                        ]
+                    })
+                }}
+            />
 
             <CalibrationModal
                 isOpen={showCalibration}

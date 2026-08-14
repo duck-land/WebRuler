@@ -32,6 +32,9 @@ export default function Header() {
                     <Link href={`/${language}#features`} className="desktop-only" style={{ color: 'var(--text-muted)', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
                         {t.header.features}
                     </Link>
+                    <Link href={`/${language}/guides`} style={{ color: 'var(--text-muted)', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
+                        {t.header.guides || 'Guides'}
+                    </Link>
 
                     {/* Language Selector */}
                     <div style={{ position: 'relative' }}>

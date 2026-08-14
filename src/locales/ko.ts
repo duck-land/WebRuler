@@ -5,6 +5,7 @@ export const ko = {
     header: {
         title: "RulerHero",
         features: "기능 소개",
+        guides: "측정 가이드",
         openRuler: "자 시작하기"
     },
     home: {
@@ -93,6 +94,7 @@ export const ko = {
         email: "이메일"
     },
     footerLinks: {
+        guides: '측정 가이드',
         privacy: '개인정보처리방침',
         terms: '이용약관',
         contact: '문의하기'
@@ -101,7 +103,7 @@ export const ko = {
         title: "개인정보 처리방침",
         intro: "RulerHero(이하 '서비스')는 사용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.",
         items: { title: "1. 수집하는 개인정보 항목", desc: "본 서비스는 별도의 회원가입 없이 이용 가능하며, 직접적인 개인식별정보를 수집하지 않습니다. 다만, 서비스 이용 과정에서 쿠키, 접속 IP, 브라우저 종류 등의 정보가 자동 생성되어 수집될 수 있습니다." },
-        cookies: { title: "2. 쿠키(Cookie) 및 제3자 분석 도구 사용", desc: "본 서비스는 다음과 같은 도구를 사용합니다.<br />Google Analytics: 서비스 이용 통계 분석을 위해 쿠키를 사용합니다.<br />Google AdSense: 사용자에게 맞춤형 광고를 제공하기 위해 쿠키를 사용합니다. 사용자는 브라우저 설정에서 쿠키 수집을 거부할 수 있습니다." },
+        cookies: { title: "2. 쿠키(Cookie) 및 제3자 분석/광고 도구 사용", desc: "본 서비스는 Google Analytics 및 Google AdSense를 포함한 제3자 분석 및 광고 서비스를 이용합니다.<br /><br />• <b>Google Analytics:</b> 서비스 이용 통계 분석 및 품질 개선을 위해 쿠키를 사용합니다.<br />• <b>Google AdSense 및 제3자 제공업체:</b> Google 및 제3자 광고 제공업체는 쿠키(DART 쿠키 등)를 사용하여 사용자의 본 사이트 및 다른 웹사이트 방문 기록을 바탕으로 맞춤형 광고를 제공합니다.<br />• <b>광고 맞춤 설정 해제:</b> 사용자는 <a href='https://www.google.com/settings/ads' target='_blank' rel='noopener noreferrer' style='color:#38bdf8; text-decoration:underline;'>Google 광고 설정</a> 또는 <a href='https://www.aboutads.info' target='_blank' rel='noopener noreferrer' style='color:#38bdf8; text-decoration:underline;'>www.aboutads.info</a>를 방문하여 맞춤형 광고를 거부(Opt-out)할 수 있으며, 웹 브라우저 설정을 통해 쿠키 수집을 차단할 수 있습니다." },
         retention: { title: "3. 개인정보의 보유 및 파기", desc: "본 서비스는 목적이 달성된 개인정보를 지체 없이 파기합니다." }
     },
     termsContent: {

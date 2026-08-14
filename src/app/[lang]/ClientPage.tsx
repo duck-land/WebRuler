@@ -18,6 +18,21 @@ export default function Home() {
 
   return (
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "RulerHero",
+            "url": `https://rulerhero.com/${language}`,
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "All",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "description": t.home.heroDesc.replace(/<[^>]*>?/gm, '')
+          })
+        }}
+      />
       <Header />
 
       {/* Hero Section */}

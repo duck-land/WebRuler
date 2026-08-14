@@ -26,6 +26,9 @@ export default function Footer() {
                     {t.home.footer}
                 </div>
                 <div style={{ display: 'flex', gap: '1.5rem' }}>
+                    <Link href={`/${language}/guides`} className="footer-link">
+                        {t.footerLinks.guides || 'Guides'}
+                    </Link>
                     <Link href={`/${language}/privacy`} className="footer-link">
                         {t.footerLinks.privacy}
                     </Link>

@@ -4,7 +4,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LanguageRedirector() {
+export default function LanguageRedirector({ to = '' }: { to?: string }) {
     const router = useRouter();
 
     useEffect(() => {
@@ -25,8 +25,8 @@ export default function LanguageRedirector() {
         }
 
         // Always redirect to the target language path
-        router.replace(`/${targetLang}`);
-    }, [router]);
+        router.replace(`/${targetLang}${to}`);
+    }, [router, to]);
 
     return null;
 }
