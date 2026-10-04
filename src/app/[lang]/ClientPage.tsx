@@ -9,6 +9,10 @@ import Link from 'next/link';
 import { FaCompressArrowsAlt, FaMobileAlt, FaDraftingCompass } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
+import HomeGuidesSection from '../../components/HomeGuidesSection';
+import ReferenceTableSection from '../../components/ReferenceTableSection';
+import FaqSection from '../../components/FaqSection';
+
 export default function Home() {
   const { t, language } = useLanguage();
 
@@ -150,6 +154,12 @@ export default function Home() {
       <HowItWorks />
 
       <AccuracySection />
+
+      <ReferenceTableSection />
+
+      <HomeGuidesSection />
+
+      <FaqSection />
 
       <Footer />
     </main>

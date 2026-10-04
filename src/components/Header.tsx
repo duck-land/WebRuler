@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FaRulerCombined } from 'react-icons/fa';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage, Language } from '../context/LanguageContext';
 
 export default function Header() {
     const { language, setLanguage, t } = useLanguage();
@@ -40,7 +40,7 @@ export default function Header() {
                     <div style={{ position: 'relative' }}>
                         <select
                             value={language}
-                            onChange={(e) => setLanguage(e.target.value as any)}
+                            onChange={(e) => setLanguage(e.target.value as Language)}
                             style={{
                                 appearance: 'none',
                                 background: 'rgba(255,255,255,0.05)',
